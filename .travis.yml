@@ -15,6 +15,7 @@ before_script:
 script:
 - npm run build
 
+# Deploy only works if a PR is done from origin, not from a fork
 deploy:
   provider: pages
   local_dir: docs
