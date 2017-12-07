@@ -15,7 +15,7 @@ cp -r src/fonts docs
 cp src/html/index.html docs/index.html
 cp icon.png docs/icon.png
 
-cp -r lib/ docs/js
+cp -r lib/ docs/js/
 
 cp -r src/css/images docs/css/images
 cp -r src/images docs/images
