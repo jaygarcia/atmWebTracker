@@ -25,6 +25,5 @@ cp mockups/sketch01.png docs/images
 
 echo "starting browserify"
 node_modules/.bin/browserify -e src/js/index.js -o "docs/js/app.js" -t [ babelify ]
-
 echo "starting node-sass"
 node_modules/.bin/node-sass src/css -o docs/css
