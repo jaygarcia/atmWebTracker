@@ -15,7 +15,7 @@ cp -r src/fonts docs
 cp src/html/index.html docs/index.html
 cp icon.png docs/icon.png
 
-cp -r lib/ docs/js/
+# cp -r lib/ docs/js/
 
 cp -r src/css/images docs/css/images
 cp -r src/images docs/images
@@ -25,5 +25,6 @@ cp mockups/sketch01.png docs/images
 
 echo "starting browserify"
 node_modules/.bin/browserify -e src/js/index.js -o "docs/js/app.js" -t [ babelify ]
+cp -r lib/ docs/js/
 echo "starting node-sass"
 node_modules/.bin/node-sass src/css -o docs/css
