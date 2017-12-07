@@ -14,9 +14,8 @@ before_script:
 - npm prune
 script:
 - npm run build
-before_deploy:
-- echo "before_deploy"
 
+# Deploy only works if a PR is done from origin, not from a fork
 deploy:
   provider: pages
   local_dir: docs
@@ -24,6 +23,3 @@ deploy:
   github_token: $GITHUB_TOKEN # Set in travis-ci.org dashboard
   on:
     branch: master
-
-after_deploy:
-- echo "after_deploy"
