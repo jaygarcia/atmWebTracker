@@ -3,4 +3,5 @@ build/
 /*.h
 ATMwebplayer/
 /_docs/
+docs/
 /.vscode

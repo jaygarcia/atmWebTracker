@@ -154,6 +154,7 @@ class SongEditor extends Component {
 
             buttons.push(
                 <button
+                    key={i}
                     className={`channel-fx ${activeFxCls}`}
                     onClick={ () => this.openChannelFx(i) }
                 >
