@@ -43,11 +43,11 @@ class ChannelRowView extends Component {
             // indicator to tell where the pattern will land if dropped
             if (target.classList.contains('draggable')) {
                 const { left, top } = target.getBoundingClientRect()
-                const xPos = left
                 const { color } = this.props.dragSource
+                console.log(target.getBoundingClientRect())
                 this.props.showDropIndicator({
-                    color: color.hex,
-                    x: xPos,
+                    color: (color && color.hex) || '#00969b',
+                    x: left,
                     y: top
                 });
             } else {
@@ -115,8 +115,8 @@ class ChannelRowView extends Component {
 
     render () {
         const props = this.props
-        const { channel, channelPatterns, editingFx, fx,
-              fxStatus, openFx, patterns, removePattern, tick = 0 } = props
+        const { channel, channelPatterns, editingFx, fx, fxStatus, openFx,
+              patterns, setDragSource, removePattern, tick = 0 } = props
         const { isDropTarget } = this.state
         const activeFx = fxStatus.fxType === 'pattern' && fxStatus.id
         const playIndicatorCtStyle = {
@@ -162,6 +162,7 @@ class ChannelRowView extends Component {
                                 openFx = {openFx}
                                 activeFx = {activeFx === editorId}
                                 appliedFx = {appliedFx}
+                                setDragSource = {setDragSource}
                             />
                         )
                     }
