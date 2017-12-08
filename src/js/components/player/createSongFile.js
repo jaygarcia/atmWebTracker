@@ -498,7 +498,8 @@ function createFxArray (fxToAdd, type, effects) {
       params.push(val_1);
     if ( values === 5 ) { // then it's arpeggio
       const param1 = parseInt(val_2.toString(16) + val_3.toString(16), 16);
-      const param2 = (val_0 ? 64 : 0) + (val_1 ? 32 : 0) + val_4;
+      // const param2 = (val_0 ? 64 : 0) + (val_1 ? 32 : 0) + val_4;
+      const param2 = (val_0 ? 64 : 0) + (val_1 ? 0 : 32) + val_4;
       params.push(param1, param2);
     }
     
