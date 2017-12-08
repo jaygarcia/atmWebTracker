@@ -48,6 +48,12 @@ const mapDispatchToProps = (dispatch) => {
                 fxType: 'pattern',
                 id: editorId
             })
+        },
+        setDragSource (dragSource) {
+            dispatch({
+                type: 'SET_PATTERN_DRAG_SOURCE',
+                dragSource
+            })
         }
     }
 }

@@ -22,17 +22,10 @@ class Pattern extends Component {
      * @param {Boolean} doCopy Whether the pattern is to be copied or moved
      */
     decorateDragSource = (doCopy) => {
-        // DEV NOTE: The state change is done on a timeout since the browser
-        // needs just a second to create the proxy image from the pattern first
-        setTimeout(
-            () => {
-                this.setState({
-                    imBeingDragged: true,
-                    copyPattern: doCopy
-                })
-            },
-            1
-        )
+        this.setState({
+            imBeingDragged: true,
+            copyPattern: doCopy
+        })
     }
 
     /**
@@ -59,6 +52,9 @@ class Pattern extends Component {
 
         // decorate the source pattern being dragged
         this.decorateDragSource(e.metaKey)
+
+        // cache the drag source for other views to reference
+        this.props.setDragSource(pattern)
     }
 
     /**

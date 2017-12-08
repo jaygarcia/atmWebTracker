@@ -101,7 +101,7 @@ class SongEditor extends Component {
             showDropIndicator: true,
             dropIndicatorPos: {
                 x: x - left - 1,
-                y: top - y + 13
+                y: y - top + 1
             },
             dropIndicatorColor: color
         })
