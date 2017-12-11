@@ -48,7 +48,7 @@ const ArpeggioOption = ({handleValueChange, data}) =>
                 onChange={e => handleValueChange('val_4', limitValue(parseInt(e.target.value), 0, 63))}
                 value={(data||{}).val_4 || 0}
                 min="0"
-                max="63"
+                max="31"
                 id="ticks"
             />
             <label htmlFor="ticks">ticks</label>
