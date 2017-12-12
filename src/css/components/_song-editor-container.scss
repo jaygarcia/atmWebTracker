@@ -126,10 +126,20 @@
 
                 .draggable-tune, .draggable-drum {
                     font-size: 7pt;
+                    display: flex;
+                    align-items: center;
 
                     &.active {
                         background-color: #f3f3f3!important;
                         color: #c5c5c5!important;
+                    }
+
+                    span {
+                        min-width: 14px;
+                        line-height: 13px;
+                        text-align: center;
+                        border-radius: 1px;
+                        background: rgba(255, 255, 255, 0.5);
                     }
                 }
             }

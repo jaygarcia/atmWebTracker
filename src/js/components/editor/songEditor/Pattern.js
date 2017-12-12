@@ -135,7 +135,6 @@ class Pattern extends Component {
         const colorDark = rgbObj.string()
         const fxCount = Object.keys(appliedFx).length
         const style = {
-            padding: '0 4px',
             width: detail.ticks*2,
             backgroundColor: colorLight,
             borderColor: colorDark,
