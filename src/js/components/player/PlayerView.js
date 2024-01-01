@@ -15,16 +15,10 @@ class Player extends Component {
         }
 
         this.tempo = 24
-        this.synth = new SquawkSynth()
-        try {
-            this.output = new WebAudioStream()
-        }
-        catch (error) {
-            console.log('WebAudioStream not supported')
-        }
-        const getSampleRate = this.output ? this.output.getSampleRate : () => {}
-        this.emulateSampleRate = 16000.0    // Emulation sample rate
-        this.converter = new SampleRateConverter(this.emulateSampleRate, getSampleRate())
+
+        // const getSampleRate = this.output ? this.output.getSampleRate : () => {}
+        // this.emulateSampleRate = 16000.0    // Emulation sample rate
+        // this.converter = new SampleRateConverter(this.emulateSampleRate, getSampleRate())
 
         this.playSong = this.playSong.bind(this)
         this.playOnce = this.playOnce.bind(this)
@@ -149,6 +143,23 @@ class Player extends Component {
     }
 
     playSong (song, callback) {
+
+        if (! this.synth) {
+            console.log("creating this.synth");
+            this.output = new WebAudioStream();
+
+            this.synth = new SquawkSynth();
+            const getSampleRate = this.output ? this.output.getSampleRate : () => {}
+            this.emulateSampleRate = 16000.0    // Emulation sample rate
+            this.converter = new SampleRateConverter(this.emulateSampleRate, getSampleRate())
+
+            // try {
+            // }
+            // catch (error) {
+            //     console.log('WebAudioStream not supported')
+            // }
+        }
+
         // Initialize player
         this.player = new SquawkStream(this.emulateSampleRate)
         this.player.onTick = (tick) => {
@@ -161,12 +172,14 @@ class Player extends Component {
                 this.stopSong()
             }
         }
+
         this.player.setSource(song)
         // Build graph [this.player]=>[synth]=>[converter]=>[output]
         // Output is the sink, and drives/times the entire graph.
         this.synth.connect(this.player)
         this.converter.connect(this.synth)
         this.output.connect(this.converter)
+
         // Begin playback
         this.output.play()
 
