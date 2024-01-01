@@ -5,3 +5,4 @@ ATMwebplayer/
 /_docs/
 docs/
 /.vscode
+.DS_Store

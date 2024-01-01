@@ -22,8 +22,8 @@
   "scripts": {
     "predeploy": "npm run build",
     "deploy" : "gh-pages -d build",
-    "dev": "bash .bin/dev.sh",
-    "build": "bash .bin/build.sh"
+    "dev": "bash bin/dev.sh",
+    "build": "bash bin/build.sh"
   },
   "dependencies": {
     "color": "^2.0.1",
